@@ -12,7 +12,7 @@ define dnsmasq::conf (
     group        => 'root',
     content      => $content,
     source       => $source,
-    validate_cmd => '/usr/sbin/dnsmasq --test --conf-file=% --conf-file=/etc/dnsmasq.conf',
+    validate_cmd => "/usr/sbin/dnsmasq --test --conf-file=% --conf-file=${::dnsmasq::params::config_file}",
     notify       => Class['dnsmasq::service'],
   }
 }

@@ -6,7 +6,7 @@ class dnsmasq::config {
 
   file { $::dnsmasq::params::config_file:
     mode         => '0644',
-    validate_cmd => "/usr/sbin/dnsmasq --test --conf-file=% --conf-file=${::dnsmasq::params::config_file}",
+    validate_cmd => '/usr/sbin/dnsmasq --test --conf-file=%',
     source       => 'puppet:///modules/dnsmasq/dnsmasq.conf',
   }
 

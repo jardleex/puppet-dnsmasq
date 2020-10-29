@@ -14,5 +14,6 @@ define dnsmasq::conf (
     source       => $source,
     validate_cmd => '/usr/sbin/dnsmasq --test --conf-file=%',
     notify       => Class['dnsmasq::service'],
+    require      => Class['::dnsmasq::install'],
   }
 }

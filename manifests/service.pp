@@ -1,8 +1,8 @@
 class dnsmasq::service (
-  $service_control = true,
+  Variant[String, Boolean] $service_control = $dnsmasq::params::service_control,
 ) {
   # validate type and convert string to boolean if necessary
-  if is_string($service_control) {
+  if $service_control =~ String {
     $service_control_real = str2bool($service_control)
   } else {
     $service_control_real = $service_control
@@ -15,5 +15,4 @@ class dnsmasq::service (
       hasstatus  => true,
     }
   }
-
 }

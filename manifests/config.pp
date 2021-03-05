@@ -9,5 +9,4 @@ class dnsmasq::config {
     validate_cmd => '/usr/sbin/dnsmasq --test --conf-file=%',
     source       => 'puppet:///modules/dnsmasq/dnsmasq.conf',
   }
-
 }

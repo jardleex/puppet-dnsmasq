@@ -1,10 +1,10 @@
 define dnsmasq::conf (
-  $ensure  = 'present',
-  $prio    = 10,
-  $source  = undef,
-  $content = undef
+  Enum['absent', 'present'] $ensure = 'present',
+  Variant[Integer[0, 999], String] $prio = 10,
+  Optional[String] $source = undef,
+  Optional[String] $content = undef
 ) {
-  include ::dnsmasq
+  include dnsmasq
 
   file { "${dnsmasq::params::config_dir}${prio}-${name}":
     ensure       => $ensure,
